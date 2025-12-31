@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Love Diary – Sketch Train</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  background:linear-gradient(180deg,#fff1f7,#eaf3ff);
+  font-family:'Comic Sans MS', cursive;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+
+/* MAIN WRAPPER */
+.wrapper{
+  width:900px;
+  height:520px;
+  position:relative;
+}
+
+/* SLIDES */
+.slide{
+  display:none;
+  position:absolute;
+  inset:0;
+  animation:fade 0.8s ease;
+}
+.slide.active{display:block;}
+
+@keyframes fade{
+  from{opacity:0; transform:translateY(30px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* LAYOUT */
+.row{
+  display:flex;
+  align-items:center;
+  gap:40px;
+  height:100%;
+}
+.reverse{flex-direction:row-reverse;}
+
+.notes{
+  flex:1;
+  font-size:18px;
+  line-height:1.9;
+  color:#444;
+}
+.notes h2{
+  font-size:28px;
+  color:#ff4d6d;
+}
+
+.photos{
+  flex:1;
+  display:flex;
+  gap:20px;
+}
+.photos img{
+  width:220px;
+  height:220px;
+  object-fit:cover;
+  border-radius:22px;
+  border:3px solid #ffd6e0;
+  transform:rotate(-6deg);
+  box-shadow:0 12px 25px rgba(0,0,0,0.25);
+}
+
+/* ARROWS */
+.arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  border:none;
+  background:#ffe6f0;
+  font-size:32px;
+  padding:14px 20px;
+  border-radius:50%;
+  cursor:pointer;
+}
+.left{ left:-110px; }
+.right{ right:-110px; }
+
+
+/* ===== SKETCH TRAIN ===== */
+.sketch-train{
+  position:absolute;
+  bottom:25px;
+  left:-300px;
+  width:260px;
+  height:90px;
+  animation:trainMove 1.4s ease forwards;
+  transform:scaleX(1); /* IMPORTANT: no reverse */
+}
+
+@keyframes trainMove{
+  from{left:-300px;}
+  to{left:100%;}
+}
+
+/* HAND DRAWN LOOK */
+.sketch rect,
+.sketch circle,
+.sketch line{
+  stroke:#444;
+  stroke-width:3;
+  fill:none;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+/* HEART SMOKE */
+.heart{
+  position:absolute;
+  bottom:95px;
+  font-size:20px;
+  animation:heartUp 1.6s ease forwards;
+}
+@keyframes heartUp{
+  from{opacity:1; transform:translateY(0) scale(1);}
+  to{opacity:0; transform:translateY(-70px) scale(1.4);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+<button class="arrow left" onclick="prevSlide()">&#8592;</button>
+<button class="arrow right" onclick="nextSlide()">&#8594;</button>
+
+<!-- JAN -->
+<div class="slide active">
+<div class="row">
+<div class="notes">
+<h2>🌸 January 📔</h2>
+<p>
+Indha year start aana moment-lairundhu, manasu romba light-ah feel aachu.
+En birthday day college bunk pannom-nu ninaikkum bodhu kooda sirippu varudhu.
+Friends oda irundha andha time, worries ellam marandhu pochu.
+Pongal celebration college-la nadandha andha naal, colours-um smiles-um neraya irundhuchu.
+Traditional vibes-um youthful fun-um mix aana oru perfect start idhu.
+Year-oda first month-la irundhe life romba positive-ah pogum-nu thonuchu.
+Indha January, memories-oda oru warm beginning-ah manasula nilachiduchu.
+</p>
+</div>
+<div class="photos">
+<img src="jan1.jpg"><img src="jan2.jpg">
+</div>
+</div>
+</div>
+
+<!-- FEB -->
+<div class="slide">
+<div class="row reverse">
+<div class="notes">
+<h2>💗 February 📔</h2>
+<p>
+February vandha udane, kaathula love feel irundha maadhiri thonuchu.
+Photoshoot pannom-nu sonnaalum, adhu just photos illa – adhu emotions.
+Camera-ku munnadi irundha andha shy smiles, kandippa marakka mudiyadhu.
+Light-ah sirichadhu, kannu pesinadhu ellame slow-ah nadandha moments.
+Indha month-la time romba fast-ah pogura maadhiri irundhuchu.
+Heart full-ah calm-um happiness-um irundha naatkal idhu.
+February, love quietly grow aana oru azhagaana chapter.
+</p>
+</div>
+<div class="photos">
+<img src="feb1.jpg"><img src="feb2.jpg">
+</div>
+</div>
+</div>
+
+<!-- MAR -->
+<div class="slide">
+<div class="row">
+<div class="notes">
+<h2>🌷 March 📔</h2>
+<p>
+March romba busy-ah irundhaalum, memorable-aa pochu.
+College culturals-la stage lights, laughter, excitement ellame mix aayiduchu.
+Parents meeting-na oru tension irundhaalum, adhuvum oru learning moment-aa maaruchu.
+Women’s Day celebrations, strength-um grace-um puriya vachiduchu.
+Daily routine-kulla irundhaalum, indha month-la life neraya nadandhuchu.
+Small stress irundhaalum, memories adha cover panniduchu.
+March, life-oda real-ah irundha phase-nu sollalaam.
+</p>
+</div>
+<div class="photos">
+<img src="mar1.jpg"><img src="mar2.jpg">
+</div>
+</div>
+</div>
+
+<!-- APR -->
+<div class="slide">
+<div class="row reverse">
+<div class="notes">
+<h2>🌼 April 📔</h2>
+<p>
+April romba silent-ah aana deep-ah irundha month.
+Eye-craving chain purchase pannina moment, simple-aa irundhaalum heart-touching.
+Surprise kudukura happiness romba different-ah irundhuchu.
+Small gift-kulla periya meaning irukkum-nu indha month purinjiduchu.
+No big celebrations, no noise – just pure feelings.
+Manasu full-ah satisfaction-um warmth-um irundha days.
+April, love-oda soft side-ah kaattina month.
+</p>
+</div>
+<div class="photos">
+<img src="apr1.jpg"><img src="apr2.jpg">
+</div>
+</div>
+</div>
+
+<!-- MAY -->
+<div class="slide">
+<div class="row">
+<div class="notes">
+<h2>💞 May 📔</h2>
+<p>
+May romba emotional-aa start aachu.
+En crush kitta en feelings-ah open-aa sonna moment, heart romba fast-aa beat aachu.
+Fear-um hope-um rendu-me same time-la irundhuchu.
+Chithirai Thiruvizha-oda colours, crowd, smiles ellame life-ku energy kuduthuchu.
+Indha month-la courage-oda value purinjiduchu.
+Truth sollradhu evlo tough-nu therinjiduchu.
+May, life-la oru important turning page.
+</p>
+</div>
+<div class="photos">
+<img src="may1.jpg"><img src="may2.jpg">
+</div>
+</div>
+</div>
+
+<!-- JUNE -->
+<div class="slide">
+<div class="row reverse">
+<div class="notes">
+<h2>💍 June 📔</h2>
+<p>
+June romba special-aa, marakka mudiyadha month.
+First time crush-oda movie ponen-nu ninaikkum bodhu kooda heart smile pannum.
+Andha first outing, first shared silence ellame precious.
+Commit aana moment-la world full-ah bright-aa thonuchu.
+Azhagar Kovil & Sirumalai trip, nature-oda calm-um love-oda warmth-um mix aachu.
+Future-oda dreams indha month-la start aayiduchu.
+June, life-oda biggest turning point.
+</p>
+</div>
+<div class="photos">
+<img src="jun2.jpg"><img src="jun3.jpg">
+</div>
+</div>
+</div>
+
+<!-- JULY -->
+<div class="slide">
+<div class="row">
+<div class="notes">
+<h2>🌿 July 📔</h2>
+<p>
+July romba peaceful-aa pochu.
+College-la irundhe friends oda meet pannom, old memories revive aachu.
+Partner-oda irundha time romba comfortable-aa irundhuchu.
+No rush, no pressure – just being ourselves.
+Simple conversations-um romba meaningful-aa feel aachu.
+Indha month-la silence-kulla happiness irundhuchu.
+July, calm-um comfort-um teach panna month.
+</p>
+</div>
+<div class="photos">
+<img src="jul1.jpg"><img src="jul3.jpg">
+</div>
+</div>
+</div>
+
+<!-- AUG -->
+<div class="slide">
+<div class="row reverse">
+<div class="notes">
+<h2>🏛️ August 📔</h2>
+<p>
+August culture-um devotion-um mix aana month.
+Keezhadi Museum visit pannina bodhu, history-oda depth purinjiduchu.
+Past-um present-um connect aana maadhiri feel aachu.
+Thiruparankundram visit, manasuku oru divine calm kuduthuchu.
+Travel-oda joy-um spirituality-oda peace-um same time-la irundhuchu.
+Indha month slow-aa pogura maadhiri feel aachu.
+August, soul-ku nallaa rest kudutha naatkal.
+</p>
+</div>
+<div class="photos">
+<img src="aug1.jpg"><img src="aug2.jpg">
+</div>
+</div>
+</div>
+
+<!-- SEP -->
+<div class="slide">
+<div class="row">
+<div class="notes">
+<h2>🎂 September 📔</h2>
+<p>
+September romba emotional-um happy-um aana month.
+Veera birthday celebrate pannina moments romba special.
+Cake cut pannina sirippu, wishes ellame heart-la settle aachu.
+Next day veetuku kutitu vandha responsibility feel romba strong-aa irundhuchu.
+Love just feelings illa, care-um responsibility-nu purinjiduchu.
+Indha month bond romba strong-aa maariduchu.
+September, relationship-oda depth kaattina time.
+</p>
+</div>
+<div class="photos">
+<img src="sep1.jpg"><img src="sep3.jpg">
+</div>
+</div>
+</div>
+
+<!-- OCT -->
+<div class="slide">
+<div class="row reverse">
+<div class="notes">
+<h2>🪔 October 📔</h2>
+<p>
+October festive vibes-oda start aachu.
+Diwali saree pic vandha bodhu, eyes-eh off panna mudiyala.
+Azhagu just looks-la illa, confidence-la irukku-nu feel aachu.
+Azhagar Kovil visit, festive calm-um devotion-um mix aachu.
+Lights, colours ellame heart-ah brighten panniduchu.
+Festival days love-ah innum strong-aa aakkiduchu.
+October, joy-oda glow irundha month.
+</p>
+</div>
+<div class="photos">
+<img src="oct1.jpg"><img src="oct2.jpg">
+</div>
+</div>
+</div>
+
+<!-- NOV + DEC -->
+<div class="slide">
+<div class="row">
+<div class="notes">
+<h2>✈️ November – December 📔</h2>
+<p>
+November ending-um December starting-um Kochi trip-oda beautiful-aa pochu.
+Travel panna bodhu time romba slow-aa pogura maadhiri feel aachu.
+Weather, streets, conversations ellame perfect-aa align aayiduchu.
+New place-la irundhaalum, comfort same-aa irundhuchu.
+Year full-ah collect pannina memories indha trip-la replay aachu.
+Grateful-aa feel panna neraya moments irundhuchu.
+Indha year azhaga close aana last chapter idhu.
+</p>
+</div>
+<div class="photos">
+<img src="nov1.jpg"><img src="dec1.jpg">
+</div>
+</div>
+</div>
+
+</div>
+<!-- FINAL THANK YOU SLIDE -->
+<div class="slide">
+  <div class="row" style="justify-content:center;">
+    <div class="notes" style="max-width:600px; text-align:center;">
+      <h2>End of This Beautiful Year 🤍</h2>
+      <p>
+        Indha year full-ah thirumba paathaa, neraya memories, neraya changes,
+        neraya growth irundhuchu. Aana ellathayum vida periya happiness,
+        nee ennoda life-kulla vandhadhu.
+        Sirippu vandhaalum, kanneer vandhaalum,
+        pakkathula irundhu support pannina oru azhagaana soul nee.
+        Un kooda irundha ovvoru moment-um,
+        romba simple-aa irundhaalum,
+        manasula deep-aa settle aayiduchu.
+        Indha year ennaku kudutha best gift nee than.
+        Thank you for being with me.
+        <br><br>
+        <b>Love you more Veera 🤍</b>
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+let slides=document.querySelectorAll(".slide");
+let i=0;
+
+function sketchTransition(){
+  const train=document.createElement("div");
+  train.className="sketch-train";
+  train.innerHTML=`
+  <svg class="sketch" width="260" height="90">
+    <rect x="10" y="40" width="90" height="30" rx="6"/>
+    <rect x="50" y="20" width="30" height="20"/>
+    <rect x="105" y="45" width="80" height="25" rx="6"/>
+    <circle cx="30" cy="75" r="8"/>
+    <circle cx="70" cy="75" r="8"/>
+    <circle cx="120" cy="75" r="8"/>
+    <circle cx="160" cy="75" r="8"/>
+  </svg>`;
+  document.body.appendChild(train);
+
+  for(let j=0;j<3;j++){
+    const h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="♡";
+    h.style.left=(48+j*4)+"%";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),1600);
+  }
+  setTimeout(()=>train.remove(),1500);
+}
+
+function show(n){
+  slides[i].classList.remove("active");
+  i=(n+slides.length)%slides.length;
+  slides[i].classList.add("active");
+  sketchTransition();
+}
+function nextSlide(){show(i+1);}
+function prevSlide(){show(i-1);}
+</script>
+
+</body>
+</html>

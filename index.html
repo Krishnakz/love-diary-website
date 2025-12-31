@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Love New Year</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#fff1f7,#e6f2ff);
+    font-family:'Comic Sans MS', cursive;
+}
+
+.container{
+    text-align:center;
+    background:white;
+    padding:45px;
+    border-radius:35px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.15);
+    min-width:380px;
+}
+
+/* title */
+h1{
+    color:#ff4d6d;
+    font-size:34px;
+    margin-bottom:20px;
+}
+
+/* timer */
+.timer{
+    display:flex;
+    gap:15px;
+    justify-content:center;
+}
+
+.box{
+    background:#fff5fb;
+    padding:18px;
+    border-radius:25px;
+    min-width:85px;
+    box-shadow:0 6px 0 #ffd6e0;
+}
+
+.box h2{
+    margin:0;
+    font-size:32px;
+    color:#ff4d6d;
+}
+
+.box p{
+    margin:0;
+    font-size:13px;
+    color:#666;
+}
+
+/* message */
+.msg{
+    margin-top:25px;
+    font-size:28px;
+    color:#2a9d8f;
+    animation:pop 1s ease;
+}
+
+@keyframes pop{
+    from{transform:scale(0);}
+    to{transform:scale(1);}
+}
+
+/* button */
+#nextBtn{
+    display:none;
+    margin-top:25px;
+    padding:14px 35px;
+    font-size:18px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    background:linear-gradient(135deg,#ffd6e0,#cce4ff);
+    color:#444;
+    box-shadow:0 10px 20px rgba(0,0,0,0.15);
+    transition:transform 0.3s ease;
+}
+#nextBtn:hover{
+    transform:scale(1.1);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>💖 New Year Countdown 💖</h1>
+
+    <div class="timer">
+        <div class="box"><h2 id="days">0</h2><p>DAYS</p></div>
+        <div class="box"><h2 id="hours">0</h2><p>HOURS</p></div>
+        <div class="box"><h2 id="minutes">0</h2><p>MIN</p></div>
+        <div class="box"><h2 id="seconds">0</h2><p>SEC</p></div>
+    </div>
+
+    <div class="msg" id="message"></div>
+
+    <!-- NEXT PAGE BUTTON -->
+    <button id="nextBtn" onclick="goNext()">💌 Open Our Story</button>
+</div>
+
+<script>
+/* SET YOUR DATE */
+const newYear = new Date("January 1, 2026 00:00:00").getTime();
+
+const timer = setInterval(()=>{
+    const now = new Date().getTime();
+    const diff = newYear - now;
+
+    if(diff <= 0){
+        clearInterval(timer);
+        document.querySelector(".timer").style.display="none";
+        document.getElementById("message").innerHTML =
+            "🎉 HAPPY NEW YEAR LOVE 🎉";
+
+        document.getElementById("nextBtn").style.display="inline-block";
+        return;
+    }
+
+    document.getElementById("days").innerHTML =
+        Math.floor(diff/(1000*60*60*24));
+    document.getElementById("hours").innerHTML =
+        Math.floor((diff/(1000*60*60))%24);
+    document.getElementById("minutes").innerHTML =
+        Math.floor((diff/(1000*60))%60);
+    document.getElementById("seconds").innerHTML =
+        Math.floor((diff/1000)%60);
+
+},1000);
+
+/* 🔗 CHANGE THIS TO YOUR PAGE */
+function goNext(){
+    window.location.href = "love-diary.html";
+}
+</script>
+
+</body>
+</html>
